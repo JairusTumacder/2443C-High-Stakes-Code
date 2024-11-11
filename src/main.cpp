@@ -24,9 +24,10 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
+	
 	pros::lcd::set_text(1, "Hello PROS User!");
 	chassis.calibrate();
-	rotation.reset();
+	rotation.reset_position();
 	pros::lcd::register_btn1_cb(on_center_button);
 }
 
@@ -84,6 +85,9 @@ void opcontrol() {
 	while (true) {
 		driverControl();
 		
+		//print the rotation sensor's angle
+		controller.print(0, 1, "rotation theta:%d", rotation.get_angle());
+
 		//delay for 1 ms then update to save resources
 		pros::delay(1);
 	}

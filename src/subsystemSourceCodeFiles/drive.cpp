@@ -81,14 +81,14 @@ void armControl(){
             //if isStaged is false
             if(!isStaged){
                 //runs the arm to its staging position (0 degrees)
-                armPD(0);
+                runArm(0);
                 //on next press, isStaged is true
                 isStaged = true;
             }
             //if isStaged is true
             else{
                 //runs the arm to its scoring position (0 degrees)
-                armPD(0);
+                runArm(0);
                 //on next press, isStaged is false
                 isStaged = false;
             }
@@ -96,13 +96,14 @@ void armControl(){
         //get value of r2 on the controller and if pressed
         else if(controller.get_digital_new_press(DIGITAL_R2)){
             //runs the arm to its starting position (0 degrees)
-            armPD(0);
+            runArm(0);
         }
     }
 }
 
 //driver control scheme
 void driverControl(){
+    //combine all of the subsystem's control schemes into the main control scheme for the driver
     arcadeDriveControl();
     intakeControl();
     mogoControl();

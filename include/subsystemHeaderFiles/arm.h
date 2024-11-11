@@ -1,3 +1,4 @@
 #include "main.h"
 
-void armPD(double theta);
+double armPID(double desiredPos);
+void runArm(double desiredPos);
