@@ -2,5 +2,5 @@
 
 void runIntake();
 void outtake();
-void macroIntake();
 void stopIntake();
+void macroIntake();
